@@ -8,7 +8,7 @@ warning: false
 theme: default
 barposition: top
 footer-left: "Made with [surveydown](https://surveydown.org)"
-footer-right: '[<i class="bi bi-github"></i> Source Code]()'
+footer-right: '[<i class="bi bi-github"></i> Source Code](https://github.com/fhdsl/ITN_Surveys/tree/add_follow_up)'
 
 # Survey Settings
 use-cookies: false
@@ -61,8 +61,11 @@ Thank you for participating!
 :::
 
 <center>
-<img src="images/cartoon1.png" style="width: 100%; max-width: 600px;">
+<img src="images/cartoon1.png" style="width: 100%; max-width: 600px;"><br/>
+Comic by Carrie Wright [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 </center>
+
+
 
 ```{r}
 sd_next()
@@ -140,15 +143,19 @@ sd_question(
 ```
 
 <center>
-<img src="images/cartoon2.png" style="width: 100%; max-width: 600px;">
+<img src="images/cartoon2.png" style="width: 100%; max-width: 600px;"><br/>
+Comic by Carrie Wright [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 </center>
+
+
+
 
 ```{r}
 
 sd_question(
   type   = 'mc',
   id     = 'itcr_affil',
-  label  = 'Have you ever been affiliated with a lab that has been funded by ITCR? (ITCR projects: <a href="https://www.cancer.gov/about-nci/organization/cssi/research/itcr/funded-projects" target="_blank">https://www.cancer.gov/about-nci/organization/cssi/research/itcr/funded-projects</a>)',
+  label  = 'Have you ever been affiliated with a lab that has been funded by ITCR? <a href="https://www.cancer.gov/about-nci/organization/cssi/research/itcr/funded-projects" target="_blank">ITCR Projects</a>',
   option = c(
     'Yes'          = 'yes',
     'No'           = 'no',
@@ -281,8 +288,10 @@ sd_question(
 ```
 
 <center>
-<img src="images/cartoon3.png" style="width: 100%; max-width: 600px;">
+<img src="images/cartoon3.png" style="width: 100%; max-width: 600px;"><br/>
+Comic by Carrie Wright [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 </center>
+
 
 ```{r}
 sd_question(
@@ -591,6 +600,13 @@ sd_next(next_page = 'end')
 :::
 
 ::: {.sd_page id=end}
+
+<center>
+<img src="images/cartoon4.png" style="width: 100%; max-width: 600px;"><br/>
+Comic by [xkcd](https://xkcd.com/2582/)
+</center>
+
+
 
 ```{r}
 sd_close()
