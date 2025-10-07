@@ -1,0 +1,611 @@
+---
+# General Settings
+format: html
+echo: false
+warning: false
+
+# Theme Settings
+theme: default
+barposition: top
+footer-left: "Made with [surveydown](https://surveydown.org)"
+footer-right: '[<i class="bi bi-github"></i> Source Code]()'
+
+# Survey Settings
+use-cookies: false
+auto-scroll: false
+rate-survey: false
+system-language: en
+highlight-unanswered: true
+highlight-color: blue
+capture-metadata: false
+all-questions-required: false
+required-questions:
+  - consent
+  - engagement
+---
+
+```{r}
+library(surveydown)
+```
+
+::: {.sd_page id=welcome}
+
+# ITN Follow-Up
+
+The [ITCR Training Network (ITN)](https://www.itcrtraining.org/) develops training materials (courses, videos, workshops, and more) for informatics and cancer research, creates tools to help with scientific outreach, and engages with the community.
+
+**Purpose**: This survey aims to identify the challenges faced by reserachers and others in the research space, identify training interests, attitudes, concerns, and the most useful aspects of our activities, as well as understand our impact on participants. We will use the results to improve our resources and apply for funding to continue our work. We will share our findings in scientific papers to help others.
+
+**Partcipation**: The survey will likely take you **~ 5-9 min** to complete. You must be 18 or older to partcipate.
+
+**Consent**: By taking this survey, you agree to be part of our study. Your participation is completely voluntary -- you can stop anytime and skip questions. Any answers you have filled in will be automatically submitted if you close the browser window.
+
+**Benefits and Risks**: By taking this survey, you help us to identify challenges in bioinformatics research and find effective training methods to enhance researchers' capacity and job satisfaction. The risk is low, as we won't ask for identifying information. By participating, you accept the risks of sharing information online.
+
+**Data sharing**: We may share insights from this survey in reports or manuscripts. All survey responses will be reported anonymously. We won't ask for identifying information, and if participants share it voluntarily, we will remove it before sharing.
+
+**Data confidentiality**: Data will be stored on a private, password-protected [supabase database](https://supabase.com/) with access restricted to members of the ITN Team. Any responses with volunteered identifiable information will be de-identified before being shared.
+
+Questions can be directed to [cwright2@fredhutch.org](mailto:cwright2@fredhutch.org)
+
+::: {.callout-tip}
+
+## Note
+
+We want this to be a bit fun!
+
+We’re pleased to offer comics as entertainment during the survey. Rest assured, we take your data privacy and our survey analysis very seriously.
+Thank you for participating!
+
+**There are more comics the further you get!**
+:::
+
+<center>
+<img src="images/cartoon1.png" style="width: 100%; max-width: 600px;">
+</center>
+
+```{r}
+sd_next()
+```
+
+:::
+
+::: {.sd_page id=consent_screen}
+
+## Consent
+
+```{r}
+
+sd_question(
+  type   = 'mc',
+  id     = 'consent',
+  label  = "Do you consent to your responses being used for research and are you over 18?",
+  option = c(
+    'Yes, I consent and I am over 18'       = 'yes',
+    'No, I do not consent or I am under 18' = 'no'
+  )
+
+)
+
+sd_next()
+```
+
+:::
+
+::: {.sd_page id=demographics}
+
+## Demographics
+
+First, we would like to collect some demographic information about you to better understand how our resources impact different kinds of researchers and trainees.
+
+```{r}
+
+sd_question(
+  type   = 'mc',
+  id     = 'research_field',
+  label  = "How would you describe your field of research?",
+  option = c(
+    'Largely the cancer research field'              = 'cancer',
+    'Cancer research and other field(s)'             = 'cancer_plus',
+    'Only other field(s) outside of cancer research' = 'not_cancer',
+    'I am not in the research field'                 = 'not_research'
+  )
+)
+
+sd_question(
+  type   = 'mc',
+  id     = 'role',
+  label  = "What best describes your title/role?",
+  option = c(
+    'Undergraduate Student'         = 'undergrad',
+    "Master's Student"              = 'masters',
+    'PhD Student'                   = 'phd',
+    'MD Student'                    = 'md',
+    'MD/PhD Student'                = 'md_phd',
+    'Postdoctoral Fellow'           = 'postdoc',
+    'Staff Scientist'               = 'staff_science',
+    'Data Scientist'                = 'data_science',
+    'Software developer/engineer'   = 'software_dev',
+    'Informatician or Data Analyst' = 'analyst',
+    'Principal Investigator'        = 'pi',
+    'Other'                         = 'other'
+  )
+)
+
+sd_question(
+  type  = "text",
+  id    = "role_other",
+  label = '*Optional* If you answered "Other" to the previous question, please elaborate:'
+)
+```
+
+<center>
+<img src="images/cartoon2.png" style="width: 100%; max-width: 600px;">
+</center>
+
+```{r}
+
+sd_question(
+  type   = 'mc',
+  id     = 'itcr_affil',
+  label  = 'Have you ever been affiliated with a lab that has been funded by ITCR? (ITCR projects: <a href="https://www.cancer.gov/about-nci/organization/cssi/research/itcr/funded-projects" target="_blank">https://www.cancer.gov/about-nci/organization/cssi/research/itcr/funded-projects</a>)',
+  option = c(
+    'Yes'          = 'yes',
+    'No'           = 'no',
+    "I'm not sure" = 'not_sure'
+  )
+)
+
+sd_next(next_page = 'interests_and_experience')
+```
+:::
+
+::: {.sd_page id=interests_and_experience}
+
+## Training Interests and Experience
+
+This section is to help us identify what kinds of training people might want or need in the future. It will also ask about your experience with training in general.
+
+```{r}
+
+sd_question(
+  type  = 'textarea',
+  id    = 'wanted_topics',
+  label = "What topics do you wish there were more training resources or opportunities for?"
+)
+
+sd_question(
+  type   = 'matrix',
+  id     = 'degree_training',
+  label  = "Did you receive training for reproducibility/transparency or data ethics as part of your <u><b>degree program</u></b>?",
+  row    = c(
+    "Training in reproducibility/transparency (in other words, making sure your results can be reproduced by others)" = "degree_training_reproducibility",
+    "Training in data ethics (appropriate data handling, data privacy, security, sharing, etc.)"                      = "degree_training_ethics"
+  ),
+  option = c(
+    "No formal training"                           = "none",
+    "Training that didn't sufficiently prepare me" = "not_sufficient",
+    "Sufficient training"                          = "sufficient",
+    "Not sure"                                     = "not_sure"
+  )
+)
+
+sd_question(
+  type  = 'textarea',
+  id    = 'research_inhibitions',
+  label = "What do you feel like inhibits your research success, rigor, efficiency, enjoyment, ease, and/or confidence the most (besides funding challenges)?"
+)
+
+
+sd_question(
+  type   = 'mc_multiple',
+  id     = 'modalities',
+  label  = 'Please select which training modalities you find the <b>most helpful</b> or <b>would prefer the most</b> for future training (select all that apply).',
+  option = c(
+    "Workshops (virtual)"                                                                                               = "virtual_workshops",
+    "Workshops (in-person)"                                                                                             = "in_person_workshops",
+    "Online courses (in your own time)"                                                                                 = "courses",
+    'Cheatsheets - see [https://www.ottrproject.org/cheatsheets](https://www.ottrproject.org/cheatsheets) for examples' = "cheatsheets",
+    "Podcasts/Audio"                                                                                                    = "podcast",
+    "Videos"                                                                                                            = "videos",
+    "Manuscripts"                                                                                                       = "papers",
+    "Discussion-based meetings"                                                                                         = "discussion_meetings",
+    "Case studies"                                                                                                      = "case_studies",
+    "None of the above"                                                                                                 = "none",
+    "Other"                                                                                                             = "other"
+  )
+)
+
+sd_question(
+  type  = "text",
+  id    = "modalities_other",
+  label = '*Optional* If you answered "Other" to the previous question, please elaborate:'
+)
+
+sd_question(
+  type   = 'matrix',
+  id     = 'ai_daily_work',
+  label  = 'What are your thoughts about the impact of AI on your <b>daily work</b>?',
+  row    = c(
+    "I fully trust the output of AI tools"                                                              = "trust_output",
+    "Using AI tools effectively can be tricky"                                                          = "effectively_difficult",
+    "Using AI tools ethically is challenging"                                                           = "ethically_difficult",
+    "AI writes most of my code for me"                                                                  = "codes_instead",
+    "AI tools help me to debug, refactor, plan, or understand code"                                     = "dev_aid",
+    "Using AI makes me feel less self-sufficient"                                                       = "sufficiency_worries",
+    "AI helps me mentor students when I have limited time/As a trainee AI helps me be more independent" = "mentorship_aid"
+  ),
+  option = c(
+    "Strongly Disagree" = "strong_disagree",
+    "Disagree"          = "disagree",
+    "Neutral"           = "neutral",
+    "Agree"             = "agree",
+    "Strongly Agree"    = "strong_agree"
+  )
+)
+
+sd_question(
+  type   = 'matrix',
+  id     = 'ai_career',
+  label  = 'What are your thoughts about the impact of AI on your <b>career</b>?',
+  row    = c(
+    "I fear that AI may make my job obsolete"                                                 = "job_fear",
+    "AI tools help me learn"                                                                  = "learning_aid",
+    "Using AI increases my confidence"                                                        = "confidence_helper",
+    "Using AI for tedious tasks has increased my capacity to perform more thoughtful science" = "handles_tedium",
+    "AI is a distraction from other important topics/methods"                                 = "distraction",
+    "I worry about issues like data privacy and properly giving credit"                       = "privacy_credit_worries"
+  ),
+  option = c(
+    "Strongly Disagree" = "strong_disagree",
+    "Disagree"          = "disagree",
+    "Neutral"           = "neutral",
+    "Agree"             = "agree",
+    "Strongly Agree"    = "strong_agree"
+  )
+)
+
+sd_question(
+  type   = 'mc',
+  id     = 'ai_tool_use_freq',
+  label  = "How often do you use commercial AI tools for everday tasks related to your research?",
+  option = c(
+    "Never"                 = "never",
+    "Once every few months" = "few_per_yr",
+    "Once a month"          = "once_m",
+    "A few times a week"    = "few_per_wk",
+    "Once a day"            = "once_d",
+    "Multiple times a day"  = "throughout_day"
+  )
+)
+```
+
+<center>
+<img src="images/cartoon3.png" style="width: 100%; max-width: 600px;">
+</center>
+
+```{r}
+sd_question(
+  type   = 'mc',
+  id     = 'engagement',
+  label  = 'Have you ever engaged with <a href="https://www.itcrtraining.org/resources" target="_blank">ITN resources or activities</a>?',
+  option = c(
+    "**Yes**"                                                                                = "yes",
+    "**No**, but I **have encouraged** a staff member or trainee to engage with ITN content" = "no_but_indirect",
+    "**No, and I **have NOT encouraged** others to interact with ITN resources"              = "no_total",
+    "I'm not sure"                                                                           = "not_sure",
+    "I have not, but I plan to"                                                              = "not_yet"
+  )
+)
+
+sd_next()
+```
+
+:::
+
+::: {.sd_page id=impact}
+
+## ITN Activity Impact
+
+This section of the survey will ask you questions about how you engaged with ITN content and how it impacted your work.
+
+```{r}
+
+sd_question(
+  type   = 'mc_multiple',
+  id     = 'engaged_with',
+  label  = "Which of the following ITN resources or activities have you engaged with? (select all that apply)",
+  option = c(
+    "Attended a workshop or multiple workshops (in-person)" = 'in_person_workshops',
+    "Attended a workshop or multiple workshops (online)"    = "online_workshops",
+    "Used a cheatsheet"                                     = "cheatsheet",
+    "Read part of a course online"                          = "course_partial",
+    "Took a full course online"                             = "course_full",
+    "Watched a video"                                       = "video",
+    "Listened to the Podcast"                               = "podcast",
+    "Used ITN software (e.g., OTTR, loqui, metricminer)"    = 'software_use',
+    "Read ITN publications"                                 = "read_papers",
+    "Attended a Citizen Science event"                      = "citizen_science",
+    "Read the ITN Blog"                                     = "read_blog",
+    "Used the ITN computing resource table"                 = "browse_computing_table",
+    "Attended an ITCR OPEN meeting"                         = "open_meeting",
+    "Attended or presented at an ITCR Trainee Symposium"    = "trainee_symposium",
+    "Other"                                                 = "other"
+  )
+)
+
+sd_question(
+  type  = 'text',
+  id    = 'engaged_with_other',
+  label = '*Optional* If you answered "Other" to the previous question, please elaborate:'
+)
+
+sd_question(
+  type   = 'matrix',
+  id     = 'observed_changes',
+  label  = "Which of the following statements accurately describes changes you've observed after interacting with ITN resources?",
+  row    = c(
+    "I have a better understanding of my work and the tools I use"      = "better_understanding",
+    "I am able to do my work more efficiently"                          = "more_efficient",
+    "My ability to evaluate different scientific questions is enhanced" = "evaluation_of_qs",
+    "I have an easier time doing some of my work"                       = "easier",
+    "My work is more transparent and I can better track my steps"       = "more_transparent",
+    "I feel happier and less stressed doing my work"                    = "happier",
+    "I feel more confident doing my work"                               = "more_confident",
+    "I can now work with larger data"                                   = "larger_data"
+
+  ),
+  option = c(
+    "Strongly Disagree" = "strong_disagree",
+    "Disagree"          = "disagree",
+    "No Change"         = "no_change",
+    "Agree"             = "agree",
+    "Strongly Agree"    = "strongly_agree"
+  )
+)
+
+sd_question(
+  type = 'mc_multiple',
+  id = 'categories_observed_changes',
+  label = "If you observed changes in your work after engaging with ITN, which large categories were most visibly impacted (select all that apply)?",
+  option = c(
+    "Reproducibility practices (e.g., code documenting, code review, automation, etc.)" = "reproducibility",
+    "Communication (e.g., LaTex/Overleaf use, clear documentation, etc.)" = "communication",
+    "Efficiency (e.g., use of AI or automation, computing resources)" = "efficiency",
+    "Leadership skills" = "leadership",
+    "Ethical considerations" = "ethics",
+    "Data management and sharing" = "data_handling",
+    "Knowledge or use of bioinformatic and computing platforms and tools (e.g., Galaxy, GenePattern, Xena, etc.)" = "tools",
+    "I recently used ITN resources, so there likely hasn't been enough time to witness change" = "recent_use",
+    "I did not observe positive changes" = "no_observed",
+    "Other" = "other"
+  )
+)
+
+sd_question(
+  type = 'text',
+  id = 'categories_observed_changes_other',
+  label = '*Optional* If you answered "Other" to the previous question, please elaborate:'
+)
+
+sd_question(
+  type = 'matrix',
+  id = 'return_recommend_freq',
+  label = "Select which statement is most true for your experience after engaging with ITN content.",
+  row = c(
+    "I have returned to the content to help with my work" = "returned",
+    "I have recommended the content to my mentor, colleagues, lab mates, or mentees" = "recommended"
+  ),
+  option = c(
+    "Never" = "never",
+    "I haven't/NA" = "havenot",
+    "I haven't, but plan to" = "plan_to",
+    "Once or twice" = "a_couple",
+    "Occasionally" = "occasionally",
+    "Frequently" = "frequently"
+  )
+)
+
+sd_question(
+  type = 'mc_multiple',
+  id = 'tool_engagement',
+  label = "Since engaging with ITN resources, have you <b>begun</b> using any of the following tools (or <b>used them more often or differently</b>) because of what you learned from ITN? (select all that apply)",
+  option = c(
+    "Galaxy" = "galaxy",
+    "GenePattern" = "genepattern",
+    "spatialGE" = "spatialge",
+    "Seurat" = "seurat",
+    "VectraPolarisData package" = "vectra_data",
+    "SpatialExperiment package" = "spatialexperiment",
+    "spatialTime package" = "spatialtime",
+    "PyCaret" = "pycaret",
+    "QIIME-2" = "qiime",
+    "UCSC Xena Browser" = "xena",
+    "EMERSE" = "emerse",
+    "DeepPhe" = "deepphe",
+    "None of the above" = "none",
+    "Other" = "other"
+  )
+)
+
+sd_question(
+  type = 'text',
+  id = 'tool_engagement_other',
+  label = '*Optional* If you answered "Other" to the previous question, please elaborate:'
+)
+
+sd_question(
+  type = 'mc',
+  id = 'opportunity_provision',
+  label = 'To what extent do you agree or disagree with the statement: "<b>ITN provided training opportunities that would otherwise have been difficult for me to obtain</b>."?',
+  option = c(
+    "Strongly Disagree" = "strong_disagree",
+    "Disagree" = "disagree",
+    "Neutral" = "neutral",
+    "Agree" = "agree",
+    "Strongly Agree" = "strong_agree"
+  )
+)
+
+sd_question(
+  type = 'mc',
+  id = 'tool_awareness',
+  label = 'To what extent do you agree or disagree with the statement: "<b>I am more aware of informatics tools because of ITN resources</b>."?',
+  option = c(
+    "Strongly Disagree" = "strong_disagree",
+    "Disagree" = "disagree",
+    "Neutral" = "neutral",
+    "Agree" = "agree",
+    "Strongly Agree" = "strong_agree"
+  )
+)
+
+sd_question(
+  type = 'mc',
+  id = 'continuation_prep',
+  label = 'To what extent do you agree or disagree with the statement: "<b>I feel better prepared to continue the next steps in my learning journey because of my interaction with ITN</b>."?',
+  option = c(
+    "Strongly Disagree" = "strong_disagree",
+    "Disagree" = "disagree",
+    "Neutral" = "neutral",
+    "Agree" = "agree",
+    "Strongly Agree" = "strong_agree"
+  )
+)
+
+sd_question(
+  type  = 'textarea',
+  id    = 'open_share',
+  label = "Feel free to share anything else that you would like about your opinion/experience with ITN that was not captured by our other questions."
+)
+
+sd_next(next_page = 'end')
+```
+
+:::
+
+::: {.sd_page id=indirect_impact}
+
+## Impact of ITN resources on those to whom you recommended them
+
+In this section, we'll ask about your experience and the impact of recommending ITN resources, though you yourself have not directly interacted with ITN resources.
+
+```{r}
+
+sd_question(
+  type = 'mc',
+  id = 'opportunity_provision_indirect',
+  label = 'To what extent do you agree or disagree with the statement: "<b>I recommended ITN resources because ITN provided training opportunities that would otherwise have been difficult to obtain</b>."?',
+  option = c(
+    "Strongly Disagree" = "strong_disagree",
+    "Disagree" = "disagree",
+    "Neutral" = "neutral",
+    "Agree" = "agree",
+    "Strongly Agree" = "strong_agree"
+  )
+)
+
+sd_question(
+  type = 'mc_multiple',
+  id = 'recommended_resources',
+  label = "Which of the following ITN resources or activities did you specifically recommend? (select all that apply)",
+  option = c(
+    "Attending in person workshop(s)" = "in_person_workshops",
+    "Attending online workshop(s)" = "online_workshops",
+    "Using a cheatsheet" = "cheatsheet",
+    "Online courses" = "courses",
+    "Watching a video" = "videos",
+    "Listening to the Podcast" = "podcast",
+    "Using ITN software (e.g., OTTR, loqui, metricminer)" = "software",
+    "Reading ITN publications" = "papers",
+    "Attending a Citizen Science event" = "citizen_science",
+    "Reading the ITN Blog" = "blog",
+    "Using the ITN computing resource table" = "computing_table",
+    "Attending or presenting at an ITCR OPEN meeting" = "open_meeting",
+    "Attending or presenting at an ITCR Trainee Symposium" = "trainee_symposium",
+    "Other" = "other"
+  )
+)
+
+sd_question(
+  type = 'text',
+  id = 'recommended_resources_other',
+  label = '*Optional* If you answered "Other" to the previous question, please elaborate:'
+)
+
+sd_question(
+  type = 'mc',
+  id = 'change_observation_indirect',
+  label = 'To what extent do you agree or disagree with the statement: "<b>I have seen a positive change in the work of those I guided to ITN resources after they used them</b>."?',
+  option = c(
+    "I haven't been able to observe their work yet" = "as_yet_unobserved",
+    "Strongly Disagree" = "strong_disagree",
+    "Disagree" = "disagree",
+    "Neutral" = "neutral",
+    "Agree" = "agree",
+    "Strongly Agree" = "strong_agree",
+    "Other" = "other"
+  )
+)
+
+sd_question(
+  type = 'text',
+  id = 'change_observation_indirect_other',
+  label = '*Optional* If you answered "Other" to the previous question, please elaborate:'
+)
+
+sd_question(
+  type = 'mc_multiple',
+  id = 'categories_observed_changes_indirect',
+  label = "If you observed changes in the work of those to whom you recommended ITN resources, which large categories were most visibly impacted? (select all that apply)",
+  option = c(
+    "Reproducibility practices (e.g., code documenting, code review, automation, etc.)" = "reproducibility",
+    "Communication (e.g., LaTex/Overleaf use, clear documentation, etc.)" = "communication",
+    "Efficiency (e.g., use of AI or automation, computing resources)" = "efficiency",
+    "Leadership skills" = "leadership",
+    "Ethical considerations" = "ethics",
+    "Data management and sharing" = "data_handling",
+    "Knowledge or use of bioinformatic and computing platforms and tools (e.g., Galaxy, GenePattern, Xena, etc.)" = "tools",
+    "I recently recommended ITN resources, so there likely hasn't been enough time to witness change" = "recent_use",
+    "I did not observe positive changes" = "no_observed",
+    "Other" = "other"
+
+  )
+)
+
+sd_question(
+  type = 'text',
+  id = 'categories_observed_changes_indirect_other',
+  label = '*Optional* If you answered "Other" to the previous question, please elaborate:'
+)
+
+sd_question(
+  type  = 'textarea',
+  id    = 'open_share_indirect',
+  label = "Feel free to share anything else that you would like about your opinion/experience with ITN that was not captured by our other questions."
+)
+
+sd_next(next_page = 'end')
+```
+
+:::
+
+::: {.sd_page id=end}
+
+```{r}
+sd_close()
+```
+
+:::
+
+::: {.sd_page id=ineligible}
+
+## Thank you for your interest!
+
+Unfortunately, you do not meet the eligibility requirements for this survey.
+
+```{r}
+sd_close()
+```
+
+:::
