@@ -2,7 +2,7 @@
 
 # Install required packages:
 # install.packages("pak")
-# pak::pak("surveydown-dev/surveydown") # Development version from GitHub
+pak::pak("surveydown-dev/surveydown@v0.13.4-gssencmode-fix", ask = FALSE)
 
 # Load packages
 library(surveydown)
@@ -41,15 +41,15 @@ server <- function(input, output, session) {
 
     # Conditional page showing
     # Consent
-    input$consent == 'yes' ~ 'demographics',
-    input$consent == 'no' ~ 'ineligible',
-
+    input$consent == 'yes' ~ 'demographics', #works as expected
+    input$consent == 'no' ~ 'ineligible_page', #does not work as expected, going to the next next page
+    
     # Engagement Level
-    input$engagement == 'yes' ~ 'impact',
-    input$engagement == 'no_but_indirect' ~ 'indirect_impact',
-    input$engagement == 'no_total' ~ 'end',
-    input$engagement == 'not_sure' ~ 'impact',
-    input$engagement == 'not_yet' ~ 'end'
+    input$engagement == 'yes' ~ 'impact', #works as expected
+    input$engagement == 'no_but_indirect' ~ 'indirect_impact', #works as expected
+    input$engagement == 'no_total' ~ 'end_page', #works as expected
+    input$engagement == 'not_sure' ~ 'impact', #works as expected
+    input$engagement == 'not_yet' ~ 'end_page' #does not work as expected, going to the next page
   )
 
   # Run surveydown server and define database

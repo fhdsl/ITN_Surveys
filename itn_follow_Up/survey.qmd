@@ -19,9 +19,6 @@ highlight-unanswered: true
 highlight-color: blue
 capture-metadata: false
 all-questions-required: false
-required-questions:
-  - consent
-  - engagement
 ---
 
 ```{r}
@@ -488,7 +485,7 @@ sd_question(
   label = "Feel free to share anything else that you would like about your opinion/experience with ITN that was not captured by our other questions."
 )
 
-sd_next(next_page = 'end')
+sd_next(next_page = 'end_page')
 ```
 
 :::
@@ -594,12 +591,12 @@ sd_question(
   label = "Feel free to share anything else that you would like about your opinion/experience with ITN that was not captured by our other questions."
 )
 
-sd_next(next_page = 'end')
+sd_next(next_page = 'end_page')
 ```
 
 :::
 
-::: {.sd_page id=end}
+::: {.sd_page id=end_page}
 
 <center>
 <img src="images/cartoon4.png" style="width: 100%; max-width: 600px;"><br/>
@@ -614,7 +611,7 @@ sd_close()
 
 :::
 
-::: {.sd_page id=ineligible}
+::: {.sd_page id=ineligible_page}
 
 ## Thank you for your interest!
 
