@@ -92,6 +92,18 @@ sd_next()
 
 :::
 
+::: {.sd_page id=screenout}
+
+## Thank you for your interest!
+
+Unfortunately, you do not meet the eligibility requirements for this survey.
+
+```{r}
+sd_close()
+```
+
+:::
+
 ::: {.sd_page id=page3}
 
 ## Demographics
@@ -485,7 +497,7 @@ sd_question(
   label = "Feel free to share anything else that you would like about your opinion/experience with ITN that was not captured by our other questions."
 )
 
-sd_next()
+sd_next(next_page = 'end')
 ```
 
 :::
@@ -591,7 +603,7 @@ sd_question(
   label = "Feel free to share anything else that you would like about your opinion/experience with ITN that was not captured by our other questions."
 )
 
-sd_next()
+sd_next(next_page = 'end')
 ```
 
 :::
@@ -606,18 +618,6 @@ Comic by [xkcd](https://xkcd.com/2582/)
 </center>
 
 
-
-```{r}
-sd_close()
-```
-
-:::
-
-::: {.sd_page id=screenout}
-
-## Thank you for your interest!
-
-Unfortunately, you do not meet the eligibility requirements for this survey.
 
 ```{r}
 sd_close()

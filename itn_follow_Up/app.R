@@ -47,7 +47,8 @@ server <- function(input, output, session) {
   # Define any conditional forward skipping logic here
   sd_skip_if(
     # Consent
-    input$consent == 'no' ~ 'screenout' #works as expected, going to the next next page
+    input$consent == 'no' ~ 'screenout',
+    input$consent == 'yes' ~ 'page3'
   )
   
   # Run surveydown server and define database
