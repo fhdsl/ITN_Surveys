@@ -36,22 +36,20 @@ ui <- sd_ui()
 
 server <- function(input, output, session) {
 
-  # Define any conditional showing logic here (show a question if a condition is true)
+  # Conditional page showing
   sd_show_if(
-
-    # Conditional page showing
-    # Consent
-    input$consent == 'yes' ~ 'demographics', #works as expected
-    input$consent == 'no' ~ 'ineligible_page', #does not work as expected, going to the next next page
-    
     # Engagement Level
-    input$engagement == 'yes' ~ 'impact', #works as expected
-    input$engagement == 'no_but_indirect' ~ 'indirect_impact', #works as expected
-    input$engagement == 'no_total' ~ 'end_page', #works as expected
-    input$engagement == 'not_sure' ~ 'impact', #works as expected
-    input$engagement == 'not_yet' ~ 'end_page' #does not work as expected, going to the next page
+    input$engagement == 'no_but_indirect' ~ 'page5b',
+    input$engagement %in% c('yes', 'not_sure') ~ 'page5a', 
+    input$engagement %in% c('no_total', 'not_yet') ~ 'end'
   )
-
+  
+  # Define any conditional forward skipping logic here
+  sd_skip_if(
+    # Consent
+    input$consent == 'no' ~ 'screenout' #works as expected, going to the next next page
+  )
+  
   # Run surveydown server and define database
   sd_server(db = db)
 }

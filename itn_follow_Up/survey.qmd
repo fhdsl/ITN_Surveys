@@ -70,7 +70,7 @@ sd_next()
 
 :::
 
-::: {.sd_page id=consent_screen}
+::: {.sd_page id=page2}
 
 ## Consent
 
@@ -92,7 +92,7 @@ sd_next()
 
 :::
 
-::: {.sd_page id=demographics}
+::: {.sd_page id=page3}
 
 ## Demographics
 
@@ -160,11 +160,11 @@ sd_question(
   )
 )
 
-sd_next(next_page = 'interests_and_experience')
+sd_next()
 ```
 :::
 
-::: {.sd_page id=interests_and_experience}
+::: {.sd_page id=page4}
 
 ## Training Interests and Experience
 
@@ -309,7 +309,7 @@ sd_next()
 
 :::
 
-::: {.sd_page id=impact}
+::: {.sd_page id=page5a}
 
 ## ITN Activity Impact
 
@@ -485,12 +485,12 @@ sd_question(
   label = "Feel free to share anything else that you would like about your opinion/experience with ITN that was not captured by our other questions."
 )
 
-sd_next(next_page = 'end_page')
+sd_next()
 ```
 
 :::
 
-::: {.sd_page id=indirect_impact}
+::: {.sd_page id=page5b}
 
 ## Impact of ITN resources on those to whom you recommended them
 
@@ -591,12 +591,14 @@ sd_question(
   label = "Feel free to share anything else that you would like about your opinion/experience with ITN that was not captured by our other questions."
 )
 
-sd_next(next_page = 'end_page')
+sd_next()
 ```
 
 :::
 
-::: {.sd_page id=end_page}
+::: {.sd_page id=end}
+
+## Thank you for taking this survey!
 
 <center>
 <img src="images/cartoon4.png" style="width: 100%; max-width: 600px;"><br/>
@@ -611,7 +613,7 @@ sd_close()
 
 :::
 
-::: {.sd_page id=ineligible_page}
+::: {.sd_page id=screenout}
 
 ## Thank you for your interest!
 
@@ -622,3 +624,5 @@ sd_close()
 ```
 
 :::
+
+
