@@ -7,8 +7,8 @@ warning: false
 # Theme Settings
 theme: default
 barposition: top
-footer-left: "Made with [surveydown](https://surveydown.org)"
-footer-right: '[<i class="bi bi-github"></i> Source Code](https://github.com/fhdsl/ITN_Surveys/tree/add_follow_up)'
+footer-left: '<a href="https://surveydown.org" target="_blank">surveydown</a>'
+footer-right: '<a href="https://github.com/fhdsl/ITN_Surveys/tree/add_follow_up" target="_blank"><i class="bi bi-github"></i> Source Code</a>'
 
 # Survey Settings
 use-cookies: false
@@ -29,7 +29,7 @@ library(surveydown)
 
 # ITN Follow-Up
 
-The [ITCR Training Network (ITN)](https://www.itcrtraining.org/) develops training materials (courses, videos, workshops, and more) for informatics and cancer research, creates tools to help with scientific outreach, and engages with the community.
+The <a href="https://www.itcrtraining.org/" target="_blank">ITCR Training Network (ITN)</a> develops training materials (courses, videos, workshops, and more) for informatics and cancer research, creates tools to help with scientific outreach, and engages with the community.
 
 **Purpose**: This survey aims to identify the challenges faced by reserachers and others in the research space, identify training interests, attitudes, concerns, and the most useful aspects of our activities, as well as understand our impact on participants. We will use the results to improve our resources and apply for funding to continue our work. We will share our findings in scientific papers to help others.
 
@@ -41,9 +41,9 @@ The [ITCR Training Network (ITN)](https://www.itcrtraining.org/) develops traini
 
 **Data sharing**: We may share insights from this survey in reports or manuscripts. All survey responses will be reported anonymously. We won't ask for identifying information, and if participants share it voluntarily, we will remove it before sharing.
 
-**Data confidentiality**: Data will be stored on a private, password-protected [supabase database](https://supabase.com/) with access restricted to members of the ITN Team. Any responses with volunteered identifiable information will be de-identified before being shared.
+**Data confidentiality**: Data will be stored on a private, password-protected <a href="https://supabase.com" target="_blank">supabase database</a> with access restricted to members of the ITN Team. Any responses with volunteered identifiable information will be de-identified before being shared.
 
-Questions can be directed to [cwright2@fredhutch.org](mailto:cwright2@fredhutch.org)
+Questions can be directed to <a href="mailto:cwright2@fredhutch.org" target="_blank">cwright2@fredhutch.org</a>
 
 ::: {.callout-tip}
 
@@ -59,7 +59,7 @@ Thank you for participating!
 
 <center>
 <img src="images/cartoon1.png" style="width: 100%; max-width: 600px;"><br/>
-Comic by Carrie Wright [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+Comic by Carrie Wright <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>
 </center>
 
 
@@ -153,7 +153,7 @@ sd_question(
 
 <center>
 <img src="images/cartoon2.png" style="width: 100%; max-width: 600px;"><br/>
-Comic by Carrie Wright [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+Comic by Carrie Wright <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>
 </center>
 
 
@@ -218,17 +218,17 @@ sd_question(
   id     = 'modalities',
   label  = 'Please select which training modalities you find the <b>most helpful</b> or <b>would prefer the most</b> for future training (select all that apply).',
   option = c(
-    "Workshops (virtual)"                                                                                               = "virtual_workshops",
-    "Workshops (in-person)"                                                                                             = "in_person_workshops",
-    "Online courses (in your own time)"                                                                                 = "courses",
-    'Cheatsheets - see [https://www.ottrproject.org/cheatsheets](https://www.ottrproject.org/cheatsheets) for examples' = "cheatsheets",
-    "Podcasts/Audio"                                                                                                    = "podcast",
-    "Videos"                                                                                                            = "videos",
-    "Manuscripts"                                                                                                       = "papers",
-    "Discussion-based meetings"                                                                                         = "discussion_meetings",
-    "Case studies"                                                                                                      = "case_studies",
-    "None of the above"                                                                                                 = "none",
-    "Other"                                                                                                             = "other"
+    "Workshops (virtual)"                                                                                                                          = "virtual_workshops",
+    "Workshops (in-person)"                                                                                                                        = "in_person_workshops",
+    "Online courses (in your own time)"                                                                                                            = "courses",
+    'Cheatsheets - see <a href="https://www.ottrproject.org/cheatsheets" target="_blank">www.ottrproject.org/cheatsheets</a> for examples' = "cheatsheets",
+    "Podcasts/Audio"                                                                                                                               = "podcast",
+    "Videos"                                                                                                                                       = "videos",
+    "Manuscripts"                                                                                                                                  = "papers",
+    "Discussion-based meetings"                                                                                                                    = "discussion_meetings",
+    "Case studies"                                                                                                                                 = "case_studies",
+    "None of the above"                                                                                                                            = "none",
+    "Other"                                                                                                                                        = "other"
   )
 )
 
@@ -298,7 +298,7 @@ sd_question(
 
 <center>
 <img src="images/cartoon3.png" style="width: 100%; max-width: 600px;"><br/>
-Comic by Carrie Wright [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+Comic by Carrie Wright <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>
 </center>
 
 
@@ -310,7 +310,7 @@ sd_question(
   option = c(
     "**Yes**"                                                                                = "yes",
     "**No**, but I **have encouraged** a staff member or trainee to engage with ITN content" = "no_but_indirect",
-    "**No, and I **have NOT encouraged** others to interact with ITN resources"              = "no_total",
+    "**No**, and I **have NOT encouraged** others to interact with ITN resources"            = "no_total",
     "I'm not sure"                                                                           = "not_sure",
     "I have not, but I plan to"                                                              = "not_yet"
   )
@@ -334,21 +334,21 @@ sd_question(
   id     = 'engaged_with',
   label  = "Which of the following ITN resources or activities have you engaged with? (select all that apply)",
   option = c(
-    "Attended a workshop or multiple workshops (in-person)" = 'in_person_workshops',
-    "Attended a workshop or multiple workshops (online)"    = "online_workshops",
-    "Used a cheatsheet"                                     = "cheatsheet",
-    "Read part of a course online"                          = "course_partial",
-    "Took a full course online"                             = "course_full",
-    "Watched a video"                                       = "video",
-    "Listened to the Podcast"                               = "podcast",
-    "Used ITN software (e.g., OTTR, loqui, metricminer)"    = 'software_use',
-    "Read ITN publications"                                 = "read_papers",
-    "Attended a Citizen Science event"                      = "citizen_science",
-    "Read the ITN Blog"                                     = "read_blog",
-    "Used the ITN computing resource table"                 = "browse_computing_table",
-    "Attended an ITCR OPEN meeting"                         = "open_meeting",
-    "Attended or presented at an ITCR Trainee Symposium"    = "trainee_symposium",
-    "Other"                                                 = "other"
+    'Attended a <a href="https://www.itcrtraining.org/events" target="_blank">workshop or multiple workshops (in-person)</a>'                = 'in_person_workshops',
+    'Attended a <a href="https://www.itcrtraining.org/events" target="_blank">workshop or multiple workshops (online)</a>'                   = "online_workshops",
+    'Used a <a href="https://www.itcrtraining.org/resources/cheatsheets" target="_blank">cheatsheet</a>'                                     = "cheatsheet",
+    'Read part of a <a href="https://www.itcrtraining.org/resources/courses" target="_blank">course online</a>'                              = "course_partial",
+    'Took a full <a href="https://www.itcrtraining.org/resources/courses" target="_blank">course online</a>'                                 = "course_full",
+    'Watched a <a href="https://www.youtube.com/@itcrtrainingnetwork2281" target="_blank">video</a>'                                         = "video",
+    'Listened to the <a href="https://crackingthecancercode.buzzsprout.com/" target="_blank">Podcast</a>'                                    = "podcast",
+    'Used <a href="https://www.itcrtraining.org/resources/software" target="_blank">ITN software</a> (e.g., OTTR, loqui, metricminer)'       = 'software_use',
+    'Read <a href="https://www.itcrtraining.org/resources/publications" target="_blank">ITN publications</a>'                                = "read_papers",
+    'Attended a <a href="https://www.itcrtraining.org/resources/citizen-science" target="_blank">Citizen Science event</a>'                  = "citizen_science",
+    'Read the <a href="https://www.itcrtraining.org/resources/blog" target="_blank">ITN Blog</a>'                                            = "read_blog",
+    'Used the <a href="https://www.itcrtraining.org/resources/computing-and-data" target="_blank">ITN computing resource table</a>'          = "browse_computing_table",
+    'Attended an <a href="https://www.itcrtraining.org/open" target="_blank">ITCR OPEN meeting</a>'                                          = "open_meeting",
+    'Attended or presented at an <a href="https://sites.google.com/view/itcrtraineesymposium" target="_blank">ITCR Trainee Symposium</a>'    = "trainee_symposium",
+    "Other"                                                                                                                                  = "other"
   )
 )
 
@@ -429,18 +429,18 @@ sd_question(
   id = 'tool_engagement',
   label = "Since engaging with ITN resources, have you <b>begun</b> using any of the following tools (or <b>used them more often or differently</b>) because of what you learned from ITN? (select all that apply)",
   option = c(
-    "Galaxy" = "galaxy",
-    "GenePattern" = "genepattern",
-    "spatialGE" = "spatialge",
-    "Seurat" = "seurat",
-    "VectraPolarisData package" = "vectra_data",
-    "SpatialExperiment package" = "spatialexperiment",
-    "spatialTime package" = "spatialtime",
-    "PyCaret" = "pycaret",
-    "QIIME-2" = "qiime",
-    "UCSC Xena Browser" = "xena",
-    "EMERSE" = "emerse",
-    "DeepPhe" = "deepphe",
+    '<a href="https://galaxyproject.org" target="_blank">Galaxy</a>' = "galaxy",
+    '<a href="https://cloud.genepattern.org/" target="_blank">GenePattern</a> or <a href="https://notebook.genepattern.org/" target="_blank">GenePattern Notebook</a>' = "genepattern",
+    'spatialGE (<a href="https://github.com/FridleyLab/spatialGE" target="_blank">package</a> or <a href="https://spatialge.moffitt.org/" target="_blank">website</a>)' = "spatialge",
+    '<a href="https://satijalab.org/seurat/" target="_blank">Seurat</a>' = "seurat",
+    '<a href="https://www.bioconductor.org/packages/release/data/experiment/html/VectraPolarisData.html" target="_blank">VectraPolarisData package</a>' = "vectra_data",
+    '<a href="https://www.bioconductor.org/packages/release/bioc/html/SpatialExperiment.html" target="_blank">SpatialExperiment package</a>' = "spatialexperiment",
+    '<a href="https://cran.r-project.org/web/packages/spatialTIME/index.html" target="_blank">spatialTIME package</a>' = "spatialtime",
+    '<a href="https://pycaret.org/" target="_blank">PyCaret</a> or <a href="https://training.galaxyproject.org/training-material/topics/statistics/tutorials/loris_model/tutorial.html" target="_blank">PyCaret through Galaxy</a>' = "pycaret",
+    '<a href="https://qiime2.org" target="_blank">QIIME-2</a>' = "qiime",
+    '<a href="https://genome.ucsc.edu/" target="_blank">UCSC Xena Browser</a>' = "xena",
+    '<a href="https://project-emerse.org" target="_blank">EMERSE</a>' = "emerse",
+    '<a href="https://deepphe.github.io/" target="_blank">DeepPhe</a>' = "deepphe",
     "None of the above" = "none",
     "Other" = "other"
   )
@@ -528,19 +528,19 @@ sd_question(
   id = 'recommended_resources',
   label = "Which of the following ITN resources or activities did you specifically recommend? (select all that apply)",
   option = c(
-    "Attending in person workshop(s)" = "in_person_workshops",
-    "Attending online workshop(s)" = "online_workshops",
-    "Using a cheatsheet" = "cheatsheet",
-    "Online courses" = "courses",
-    "Watching a video" = "videos",
-    "Listening to the Podcast" = "podcast",
-    "Using ITN software (e.g., OTTR, loqui, metricminer)" = "software",
-    "Reading ITN publications" = "papers",
-    "Attending a Citizen Science event" = "citizen_science",
-    "Reading the ITN Blog" = "blog",
-    "Using the ITN computing resource table" = "computing_table",
-    "Attending or presenting at an ITCR OPEN meeting" = "open_meeting",
-    "Attending or presenting at an ITCR Trainee Symposium" = "trainee_symposium",
+    'Attending a <a href="https://www.itcrtraining.org/events" target="_blank">in-person workshop(s)</a>'                                   = 'in_person_workshops',
+    'Attending a <a href="https://www.itcrtraining.org/events" target="_blank">online workshop(s)</a>'                                      = "online_workshops",
+    'Using a <a href="https://www.itcrtraining.org/resources/cheatsheets" target="_blank">cheatsheet</a>'                                   = "cheatsheet",
+    '<a href="https://www.itcrtraining.org/resources/courses" target="_blank">Online courses</a>'                                           = "courses",
+    'Watching a <a href="https://www.youtube.com/@itcrtrainingnetwork2281" target="_blank">video</a>'                                       = "video",
+    'Listening to the <a href="https://crackingthecancercode.buzzsprout.com/" target="_blank">Podcast</a>'                                  = "podcast",
+    'Using <a href="https://www.itcrtraining.org/resources/software" target="_blank">ITN software</a> (e.g., OTTR, loqui, metricminer)'     = 'software_use',
+    'Reading <a href="https://www.itcrtraining.org/resources/publications" target="_blank">ITN publications</a>'                            = "read_papers",
+    'Attending a <a href="https://www.itcrtraining.org/resources/citizen-science" target="_blank">Citizen Science event</a>'                = "citizen_science",
+    'Reading the <a href="https://www.itcrtraining.org/resources/blog" target="_blank">ITN Blog</a>'                                        = "read_blog",
+    'Using the <a href="https://www.itcrtraining.org/resources/computing-and-data" target="_blank">ITN computing resource table</a>'        = "browse_computing_table",
+    'Attending or presenting at an <a href="https://www.itcrtraining.org/open" target="_blank">ITCR OPEN meeting</a>'                       = "open_meeting",
+    'Attending or presenting at an <a href="https://sites.google.com/view/itcrtraineesymposium" target="_blank">ITCR Trainee Symposium</a>' = "trainee_symposium",
     "Other" = "other"
   )
 )
@@ -614,7 +614,7 @@ sd_next(next_page = 'end')
 
 <center>
 <img src="images/cartoon4.png" style="width: 100%; max-width: 600px;"><br/>
-Comic by [xkcd](https://xkcd.com/2582/)
+Comic by <a href="https://xkcd.com/2582/" target="_blank">xkcd</a>
 </center>
 
 
@@ -624,5 +624,3 @@ sd_close()
 ```
 
 :::
-
-
