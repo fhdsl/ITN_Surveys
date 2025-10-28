@@ -367,7 +367,7 @@ sd_question(
     "I can work more efficiently"                          = "more_efficient",
     "I can now ask different scientific questions" = "evaluation_of_qs",
     "Some of my work is now easier"                       = "easier",
-    "My work is more transparent and I can better track my steps"       = "more_transparent",
+    "I can better track the steps of my work"       = "more_transparent",
     "I feel happier and less stressed doing my work"                    = "happier",
     "I feel more confident doing my work"                               = "more_confident",
     "I can now work with larger data"                                   = "larger_data"
