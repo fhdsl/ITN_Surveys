@@ -363,10 +363,10 @@ sd_question(
   id     = 'observed_changes',
   label  = "Which of the following statements accurately describes changes you've observed after interacting with ITN resources?",
   row    = c(
-    "I have a better understanding of my work and the tools I use"      = "better_understanding",
-    "I am able to do my work more efficiently"                          = "more_efficient",
-    "My ability to evaluate different scientific questions is enhanced" = "evaluation_of_qs",
-    "I have an easier time doing some of my work"                       = "easier",
+    "I better understand my work and the tools I use"      = "better_understanding",
+    "I can work more efficiently"                          = "more_efficient",
+    "I can now ask different scientific questions" = "evaluation_of_qs",
+    "Some of my work is now easier"                       = "easier",
     "My work is more transparent and I can better track my steps"       = "more_transparent",
     "I feel happier and less stressed doing my work"                    = "happier",
     "I feel more confident doing my work"                               = "more_confident",
@@ -411,16 +411,15 @@ sd_question(
   id = 'return_recommend_freq',
   label = "Select which statement is most true for your experience after engaging with ITN content.",
   row = c(
-    "I have returned to the content to help with my work" = "returned",
-    "I have recommended the content to my mentor, colleagues, lab mates, or mentees" = "recommended"
+    "I have returned to the content" = "returned",
+    "I have recommended the content to others" = "recommended"
   ),
   option = c(
     "Never" = "never",
     "I haven't/NA" = "havenot",
-    "I haven't, but plan to" = "plan_to",
+    "Plan to" = "plan_to",
     "Once or twice" = "a_couple",
-    "Occasionally" = "occasionally",
-    "Frequently" = "frequently"
+    "Often" = "often"
   )
 )
 
