@@ -195,14 +195,14 @@ sd_question(
   id     = 'degree_training',
   label  = "Did you receive training for reproducibility/transparency or data ethics as part of your <u><b>degree program</u></b>?",
   row    = c(
-    "Training in reproducibility/transparency (in other words, making sure your results can be reproduced by others)" = "degree_training_reproducibility",
+    "Training in reproducibility / transparency (in other words, making sure your results can be reproduced by others)" = "degree_training_reproducibility",
     "Training in data ethics (appropriate data handling, data privacy, security, sharing, etc.)"                      = "degree_training_ethics"
   ),
   option = c(
-    "No formal training"                           = "none",
-    "Training that didn't sufficiently prepare me" = "not_sufficient",
-    "Sufficient training"                          = "sufficient",
-    "Not sure"                                     = "not_sure"
+    "No formal training"    = "none",
+    "Insufficient training" = "insufficient",
+    "Sufficient training"   = "sufficient",
+    "Not sure"              = "not_sure"
   )
 )
 
@@ -240,16 +240,13 @@ sd_question(
 
 sd_question(
   type   = 'matrix',
-  id     = 'ai_daily_work',
-  label  = 'What are your thoughts about the impact of AI on your <b>daily work</b>?',
+  id     = 'ai_daily_work_code',
+  label  = 'What are your thoughts about the impact of AI on your <b>daily work</b> in regards to <b>programming</b>?',
   row    = c(
-    "I fully trust the output of AI tools"                                                              = "trust_output",
-    "Using AI tools effectively can be tricky"                                                          = "effectively_difficult",
-    "Using AI tools ethically is challenging"                                                           = "ethically_difficult",
-    "AI writes most of my code for me"                                                                  = "codes_instead",
-    "AI tools help me to debug, refactor, plan, or understand code"                                     = "dev_aid",
-    "Using AI makes me feel less self-sufficient"                                                       = "sufficiency_worries",
-    "AI helps me mentor students when I have limited time/As a trainee AI helps me be more independent" = "mentorship_aid"
+    "I fully trust the output of AI tools"                          = "trust_output",
+    "Using AI tools effectively can be tricky"                      = "effectively_difficult",
+    "AI writes most of my code for me"                              = "codes_instead",
+    "AI tools help me to debug, refactor, plan, or understand code" = "dev_aid"
   ),
   option = c(
     "Strongly Disagree" = "strong_disagree",
@@ -261,6 +258,27 @@ sd_question(
 )
 
 sd_question(
+  type = 'matrix',
+  id = 'ai_daily_work_feel',
+  label = 'What are your thoughts about the impact of using AI in your <b>daily work</b> in general?',
+  row = c(
+    "I feel less self-sufficient"             = "sufficiency_worries",
+    "I worry about ethical issues (e.g., data privacy, credit)"                       = "privacy_credit_worries",
+    "As a mentor, helps me guide students"    = "mentorship_aid",
+    "As a trainee, I can be more independent" = "independence"
+  ),
+  option = c(
+    "NA"                = 'na',
+    "Strongly Disagree" = "strong_disagree",
+    "Disagree"          = "disagree",
+    "Neutral"           = "neutral",
+    "Agree"             = "agree",
+    "Strongly Agree"    = "strong_agree"
+  )
+
+)
+
+sd_question(
   type   = 'matrix',
   id     = 'ai_career',
   label  = 'What are your thoughts about the impact of AI on your <b>career</b>?',
@@ -268,9 +286,9 @@ sd_question(
     "I fear that AI may make my job obsolete"                                                 = "job_fear",
     "AI tools help me learn"                                                                  = "learning_aid",
     "Using AI increases my confidence"                                                        = "confidence_helper",
-    "Using AI for tedious tasks has increased my capacity to perform more thoughtful science" = "handles_tedium",
-    "AI is a distraction from other important topics/methods"                                 = "distraction",
-    "I worry about issues like data privacy and properly giving credit"                       = "privacy_credit_worries"
+    "Using AI for tedious tasks frees up time for more thoughtful science" = "handles_tedium",
+    "AI is a distraction from other important topics/methods"                                 = "distraction"
+
   ),
   option = c(
     "Strongly Disagree" = "strong_disagree",
@@ -334,21 +352,21 @@ sd_question(
   id     = 'engaged_with',
   label  = "Which of the following ITN resources or activities have you engaged with? (select all that apply)",
   option = c(
-    'Attended a <a href="https://www.itcrtraining.org/events" target="_blank">workshop or multiple workshops (in-person)</a>'                = 'in_person_workshops',
-    'Attended a <a href="https://www.itcrtraining.org/events" target="_blank">workshop or multiple workshops (online)</a>'                   = "online_workshops",
-    'Used a <a href="https://www.itcrtraining.org/resources/cheatsheets" target="_blank">cheatsheet</a>'                                     = "cheatsheet",
-    'Read part of a <a href="https://www.itcrtraining.org/resources/courses" target="_blank">course online</a>'                              = "course_partial",
-    'Took a full <a href="https://www.itcrtraining.org/resources/courses" target="_blank">course online</a>'                                 = "course_full",
-    'Watched a <a href="https://www.youtube.com/@itcrtrainingnetwork2281" target="_blank">video</a>'                                         = "video",
-    'Listened to the <a href="https://crackingthecancercode.buzzsprout.com/" target="_blank">Podcast</a>'                                    = "podcast",
-    'Used <a href="https://www.itcrtraining.org/resources/software" target="_blank">ITN software</a> (e.g., OTTR, loqui, metricminer)'       = 'software_use',
-    'Read <a href="https://www.itcrtraining.org/resources/publications" target="_blank">ITN publications</a>'                                = "read_papers",
-    'Attended a <a href="https://www.itcrtraining.org/resources/citizen-science" target="_blank">Citizen Science event</a>'                  = "citizen_science",
-    'Read the <a href="https://www.itcrtraining.org/resources/blog" target="_blank">ITN Blog</a>'                                            = "read_blog",
-    'Used the <a href="https://www.itcrtraining.org/resources/computing-and-data" target="_blank">ITN computing resource table</a>'          = "browse_computing_table",
-    'Attended an <a href="https://www.itcrtraining.org/open" target="_blank">ITCR OPEN meeting</a>'                                          = "open_meeting",
-    'Attended or presented at an <a href="https://sites.google.com/view/itcrtraineesymposium" target="_blank">ITCR Trainee Symposium</a>'    = "trainee_symposium",
-    "Other"                                                                                                                                  = "other"
+    'Attended <a href="https://www.itcrtraining.org/events" target="_blank"> in-person workshop(s)</a>'                                   = 'in_person_workshops',
+    'Attended <a href="https://www.itcrtraining.org/events" target="_blank"> online workshop(s) </a>'                                     = "online_workshops",
+    'Used a <a href="https://www.itcrtraining.org/resources/cheatsheets" target="_blank">cheatsheet</a>'                                  = "cheatsheet",
+    'Read part of a <a href="https://www.itcrtraining.org/resources/courses" target="_blank">course online</a>'                           = "course_partial",
+    'Took a full <a href="https://www.itcrtraining.org/resources/courses" target="_blank">course online</a>'                              = "course_full",
+    'Watched a <a href="https://www.youtube.com/@itcrtrainingnetwork2281" target="_blank">video</a>'                                      = "video",
+    'Listened to the <a href="https://crackingthecancercode.buzzsprout.com/" target="_blank">Podcast</a>'                                 = "podcast",
+    'Used <a href="https://www.itcrtraining.org/resources/software" target="_blank">ITN software</a> (e.g., OTTR, loqui, metricminer)'    = 'software_use',
+    'Read <a href="https://www.itcrtraining.org/resources/publications" target="_blank">ITN publications</a>'                             = "read_papers",
+    'Attended a <a href="https://www.itcrtraining.org/resources/citizen-science" target="_blank">Citizen Science event</a>'               = "citizen_science",
+    'Read the <a href="https://www.itcrtraining.org/resources/blog" target="_blank">ITN Blog</a>'                                         = "read_blog",
+    'Used the <a href="https://www.itcrtraining.org/resources/computing-and-data" target="_blank">ITN computing resource table</a>'       = "browse_computing_table",
+    'Attended an <a href="https://www.itcrtraining.org/open" target="_blank">ITCR OPEN meeting</a>'                                       = "open_meeting",
+    'Attended or presented at an <a href="https://sites.google.com/view/itcrtraineesymposium" target="_blank">ITCR Trainee Symposium</a>' = "trainee_symposium",
+    "Other"                                                                                                                               = "other"
   )
 )
 
@@ -415,7 +433,6 @@ sd_question(
     "I have recommended the content to others" = "recommended"
   ),
   option = c(
-    "Never" = "never",
     "I haven't/NA" = "havenot",
     "Plan to" = "plan_to",
     "Once or twice" = "a_couple",
