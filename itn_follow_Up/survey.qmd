@@ -195,7 +195,7 @@ sd_question(
   id     = 'degree_training',
   label  = "Did you receive training for reproducibility/transparency or data ethics as part of your <u><b>degree program</u></b>?",
   row    = c(
-    "Training in reproducibility / transparency (in other words, making sure your results can be reproduced by others)" = "degree_training_reproducibility",
+    "Training in reproducibility/ transparency (in other words, making sure your results can be reproduced by others)" = "degree_training_reproducibility",
     "Training in data ethics (appropriate data handling, data privacy, security, sharing, etc.)"                      = "degree_training_ethics"
   ),
   option = c(
