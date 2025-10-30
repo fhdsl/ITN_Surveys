@@ -31,9 +31,9 @@ library(surveydown)
 
 The <a href="https://www.itcrtraining.org/" target="_blank">ITCR Training Network (ITN)</a> develops training materials (courses, videos, workshops, and more) for informatics and cancer research, creates tools to help with scientific outreach, and engages with the community.
 
-**Purpose**: This survey aims to identify the challenges faced by reserachers and others in the research space, identify training interests, attitudes, concerns, and the most useful aspects of our activities, as well as understand our impact on participants. We will use the results to improve our resources and apply for funding to continue our work. We will share our findings in scientific papers to help others.
+**Purpose**: This survey aims to identify the challenges faced by researchers and others in the research space, identify training interests, attitudes, concerns, and the most useful aspects of our activities, as well as understand our impact on participants. We will use the results to improve our resources and apply for funding to continue our work. We will share our findings in scientific papers to help others.
 
-**Partcipation**: The survey will likely take you **~ 5-9 min** to complete. You must be 18 or older to partcipate.
+**Participation**: The survey will likely take you **~ 5-9 min** to complete. You must be 18 or older to participate.
 
 **Consent**: By taking this survey, you agree to be part of our study. Your participation is completely voluntary -- you can stop anytime and skip questions. Any answers you have filled in will be automatically submitted if you close the browser window.
 
@@ -302,7 +302,7 @@ sd_question(
 sd_question(
   type   = 'mc',
   id     = 'ai_tool_use_freq',
-  label  = "How often do you use commercial AI tools for everday tasks related to your research?",
+  label  = "How often do you use commercial AI tools for everyday tasks related to your research?",
   option = c(
     "Never"                 = "never",
     "Once every few months" = "few_per_yr",
@@ -381,15 +381,30 @@ sd_question(
   id     = 'observed_changes',
   label  = "Which of the following statements accurately describes changes you've observed after interacting with ITN resources?",
   row    = c(
-    "I better understand my work and the tools I use"      = "better_understanding",
-    "I can work more efficiently"                          = "more_efficient",
-    "I can now ask different scientific questions" = "evaluation_of_qs",
-    "Some of my work is now easier"                       = "easier",
-    "I can better track the steps of my work"       = "more_transparent",
-    "I feel happier and less stressed doing my work"                    = "happier",
-    "I feel more confident doing my work"                               = "more_confident",
-    "I can now work with larger data"                                   = "larger_data"
+    "I better understand my work and the tools I use" = "better_understanding",
+    "I can ask different scientific questions"    = "evaluation_of_qs",
+    "I better track the steps of my work"         = "more_transparent",
+    "I can work with larger data"                 = "larger_data"
 
+  ),
+  option = c(
+    "Strongly Disagree" = "strong_disagree",
+    "Disagree"          = "disagree",
+    "No Change"         = "no_change",
+    "Agree"             = "agree",
+    "Strongly Agree"    = "strongly_agree"
+  )
+)
+
+sd_question(
+  type = 'matrix',
+  id = 'feeling_changes',
+  label = 'Which of the following statements accurately describes changes in how you feel about your work after interacting with ITN resources?',
+  row = c(
+    "Some of my work is now easier"                  = "easier",
+    "I work more efficiently"                        = "more_efficient",
+    "I feel happier and less stressed doing my work" = "happier",
+    "I feel more confident doing my work"            = "more_confident"
   ),
   option = c(
     "Strongly Disagree" = "strong_disagree",
